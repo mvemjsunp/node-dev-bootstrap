@@ -6,7 +6,7 @@ var credentials = require('./credentials.js');
 var client = redis.createClient();
 
 //if the 'awesome' key doesn't exist, create it
-//redis gives a value to error and exists
+//redis gives a value to error and exists (boolean)
 client.exists('awesome', function(error, exists) {
 	//if error is define, then there was probably some 
 	//problem connecting to redis
@@ -35,20 +35,6 @@ t.stream(
 			//if awesome is in the tweet text, increment counter
 			if(tweet.text.match(/awesome/)) {
 				client.incr('awesome');
-			}
-			else if(tweet.text.match(/cool/)) {
-				client.incr('cool');
-			}
-			else if(tweet.text.match(/rad/)) {
-				client.incr('rad');
-			}
-			else if(tweet.text.match(/gnarly/)) {
-				client.incr('gnarly');
-			}
-			else if(tweet.text.match(/groovy/)) {
-				client.incr('groovy');
-			}
-			else {
 			}
 		});
 	}
