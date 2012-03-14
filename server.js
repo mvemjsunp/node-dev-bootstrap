@@ -25,10 +25,10 @@ var client = redis.createClient();
 // 	});
 	
 http.createServer(function (req, res) {
-	client.mget(['awesome','gnarly'], function(error, responses) {
+	client.mget(['awesome','cool','rad','gnarly','groovy'], function(error, responses) {
 		console.log(responses);
 		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.end('awesomeCount:' + responses[0] + '<br /> gnarlyCount:' + responses[1]);
+		res.end('awesomeCount:' + responses[0] + '<br /> coolCount:' + responses[1] + '<br /> radCount:' + responses[2] + '<br /> gnarlyCount:' + responses[3] + '<br /> groovyCount:' + responses[4]);
 	});
 }).listen(3000);
 
