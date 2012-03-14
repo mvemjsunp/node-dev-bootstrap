@@ -28,7 +28,7 @@ http.createServer(function (req, res) {
 	client.mget(['awesome','cool','rad','gnarly','groovy'], function(error, responses) {
 		console.log(responses);
 		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.end('awesomeCount:' + responses[0] + '<br /> coolCount:' + responses[1] + '<br /> radCount:' + responses[2] + '<br /> gnarlyCount:' + responses[3] + '<br /> groovyCount:' + responses[4]);
+		res.end('<font face="sans-serif">AWESOME has been tweeted <strong>' + responses[0] + '</strong> times' + '<br /><br /> COOL has been tweeted <strong>' + responses[1] + '</strong> times' + '<br /><br /> RAD has been tweeted <strong>' + responses[2] + '</strong> times' +  '<br /><br /> GNARLY has been tweeted <strong>' + responses[3] + '</strong> times' +  '<br /><br /> GROOVY has been tweeted <strong>' + responses[4] + '</strong> times');
 	});
 }).listen(3000);
 
